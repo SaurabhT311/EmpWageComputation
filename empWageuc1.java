@@ -7,7 +7,8 @@ class empWageuc1
 		if(res==isPresent)
 		{
 			System.out.print("Employee is present");
-		}else{
+		}
+		else{
 			System.out.print("Employee is absent");
 		}
 	}
