@@ -2,18 +2,25 @@ class empWage
 {
         public static void main(String[] args)
         {
-                System.out.println("Welcome to the Employee  Wage Computation");
-		int res=(int)((Math.random()*10)%2);
-		int isPresent=0;
-		if(res==isPresent)
+		int wage_per_hr=20;
+		int fullTime=1;
+		int empHrs=0;
+      		int partTime=2;
+		int salary=0;
+		System.out.println("Welcome to the Employee Wage Computation");
+		int empCheck=(int)(Math.floor(Math.random()*10)%3);
+		if(empCheck==fullTime)
 		{
-			System.out.println("Employee is present");
+			empHrs=8;
 	        }
-		else{
-			System.out.println("Employee is Absent");
+		else if(empCheck==partTime)
+		{
+			empHrs=4;
 		}
+		else{
+			empHrs=0;
 	}
+	salary=empHrs*wage_per_hr;
+	System.out.println("Employee Salary: "+ salary);
+  }
 }
-
-
-
