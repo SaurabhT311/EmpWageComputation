@@ -1,7 +1,10 @@
-n class empWage
+class empWage
 {
-	public static void main(String[] args)
-	{
-		System.out.println("Welcome to the Employee  Wage Computation");
-	}
+        public static void main(String[] args)
+        {
+                System.out.println("Welcome to the Employee  Wage Computation");
+        }
 }
+
+
+
