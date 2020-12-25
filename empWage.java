@@ -21,7 +21,7 @@ class empWage
 					empHrs=8;
 					break;
 				case 2:
-					empHrs=4;
+					 empHrs=4;
 					break;
 				default:
 					empHrs=0;
