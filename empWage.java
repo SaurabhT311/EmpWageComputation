@@ -12,6 +12,7 @@ class empWage
 		int totalempHrs=0;
 		int totalworkingdays=0;
 
+		System.out.println("Welcome to Employee Wage Computation Program in Main branch");
 		while(totalempHrs<=Max_working_Hrs && totalworkingdays<=workday_in_months)
 		{
 			int empCheck=(int)(Math.floor(Math.random()*10)%3);
@@ -22,6 +23,7 @@ class empWage
 					break;
 				case 2:
 					 empHrs=4;
+					empHrs=4;
 					break;
 				default:
 					empHrs=0;
