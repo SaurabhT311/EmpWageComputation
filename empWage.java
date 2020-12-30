@@ -3,7 +3,7 @@ class empWage
         //instance variables
         public static final int isFullTime=1;
         public static final int isPartTime=2;
-
+	
         //fucntion to compute monthly salary
         public static void computeWage(String company, int wage_per_hr, int workday_in_months, int max_working_hrs)
         {
