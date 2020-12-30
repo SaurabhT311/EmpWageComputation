@@ -21,18 +21,20 @@ public class empWage
 {
 	public static final int isFullTime=1;
         public static final int isPartTime=2;
-	private int num_of_company=0;
-	private companyEmpWage[] companyEmpWageArray;
+	private int num_of_company=0;// private type variable
+	private companyEmpWage[] companyEmpWageArray;//private array
 	
-	public empWage()
+	public empWage()//default construcor
 	{
 		companyEmpWageArray=new companyEmpWage[4];
 	}
+	//Adding companies in arrays
 	private void addCompanyEmpWage(String company,int wage_per_hr, int workday_in_months,int max_working_hrs)
 	{
 		companyEmpWageArray[num_of_company]=new companyEmpWage(company,wage_per_hr,workday_in_months,max_working_hrs);
 		num_of_company++;
 	}
+	//calling computewage function and calculating empwage for every index
 	public void computeEmpWage()
 	{
 		for(int i=0;i<num_of_company;i++)
@@ -80,13 +82,11 @@ public class empWage
         public static void main(String[] args)
         {
                 System.out.println("Welcome to Employee Wage Computation Program in Main branch");
-		empWage ob=new empWage();//created object and initialized and passed to the argument
-
+		empWage ob=new empWage();//created object for empWage class
                 ob.addCompanyEmpWage("DeSaw",50,35,25);//calling funtion with the object
                 ob.addCompanyEmpWage("TCS",40,25,18);//calling function with the object
                 ob.addCompanyEmpWage("NetScope",50,20,15);//doing same like above two
-		ob.computeEmpWage();
-//		ob.computeWage();
+		ob.computeEmpWage();//calling fucntion with the object
 }
 }
 
