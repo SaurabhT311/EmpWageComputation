@@ -4,7 +4,8 @@ class empWageSal
 	public static final int isPartTime=2;  
 	public static final int Max_working_Hrs=100;
         public static final int workday_in_months=20;
-
+	public static final int workday_in_months=20;
+	
         public void empsalary(String company, int wage_per_hr, int workday_in_months, int max_working_hrs)
         {
 		int empHrs=0;
