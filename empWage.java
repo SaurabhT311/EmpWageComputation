@@ -33,7 +33,7 @@ class empWage
                         totalempHrs=totalempHrs+empHrs;
                         totalworkingdays++; //incrementing while loop.
                 }
-                        int TotalSalary= totalempHrs*wage_per_hr; //Calculating total salary
+                        int TotalSalary= totalempHrs*wage_per_hr; //Calculating total salary of employee
 		
 			//printing totalsalary of different companies employee
                         System.out.println( "Total Employee Salary of " + company +" is " + TotalSalary);
