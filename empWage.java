@@ -12,7 +12,6 @@ class empWage
 		int totalworkingdays=0;
 		int totalempHrs=0;
 
-		System.out.println("Welcome to Employee Wage Computation Program in Main branch");
 		while(totalempHrs<=max_working_Hrs && totalworkingdays<=workday_in_months)
 		{
 			int empCheck=(int)(Math.floor(Math.random()*10)%3);
