@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 class companyEmpWage
 {
-        //instance variables
-      
+        //instance variables  
         public String company;
         public int wage_per_hr;
         public int workday_in_months;
@@ -15,8 +14,7 @@ class companyEmpWage
                 this.company= company;
                 this.wage_per_hr= wage_per_hr;
                 this.workday_in_months= workday_in_months;
-                this.max_working_hrs= max_working_hrs;
-            
+                this.max_working_hrs= max_working_hrs;            
         }
         //is used to replace the element at the specified position in the list with the specified element
         public void setTotalSalary(int totalSalary)
@@ -33,11 +31,8 @@ class companyEmpWage
 public class empWage
 {
         public static final int isFullTime=1;
-        public static final int isPartTime=2;
-       // private int num_of_company=0;// private type variable
-        
+        public static final int isPartTime=2;   
         public ArrayList<companyEmpWage> companyEmpWageArray;//created arraylist
-
         public empWage()//default construcor
         {
                 companyEmpWageArray=new ArrayList<>();
@@ -53,7 +48,7 @@ public class empWage
         {
                 for(int i=0;i<companyEmpWageArray.size();i++)
                 {
-                        companyEmpWage companylist=companyEmpWageArray.get(i);
+                        companyEmpWage companylist=companyEmpWageArray.get(i);//created object and getting companies with index position.
                         companylist.setTotalSalary(this.computeWage(companylist));
                         System.out.println(companylist);
                 }
