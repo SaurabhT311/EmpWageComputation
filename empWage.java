@@ -1,19 +1,12 @@
-interface companyEmployeewage
+import java.util.ArrayList;
+class companyEmpWage
 {
-        public void addCompanyEmpWage(String company,int wage_per_hr, int workday_in_months,int max_working_hrs);
-        public void computeEmpWage();
-} //created interface and it means all the functions are abstract but we don't
-//have to mention it, thats why we create interface and implement it.
-
-class companyEmpWage 
-{
-        //instance variables
-        public static final int isFullTime=1;
-        public static final int isPartTime=2;
+        //instance variables  
         public String company;
         public int wage_per_hr;
         public int workday_in_months;
         public int max_working_hrs;
+        public int totalSalary;
 
         //parameterized constructor
         public companyEmpWage(String company, int wage_per_hr, int workday_in_months, int max_working_hrs)
@@ -21,38 +14,48 @@ class companyEmpWage
                 this.company= company;
                 this.wage_per_hr= wage_per_hr;
                 this.workday_in_months= workday_in_months;
-                this.max_working_hrs= max_working_hrs;
+                this.max_working_hrs= max_working_hrs;            
         }
+        //is used to replace the element at the specified position in the list with the specified element
+        public void setTotalSalary(int totalSalary)
+        {
+                this.totalSalary=totalSalary;
+        }
+        public String toString() //to return desire output 
+        {
+              return "Total employee wage for: " +company+ " is " +totalSalary;
+        }
+        	
 }
 //implementing interface
-public class empWage implements companyEmployeewage
+public class empWage
 {
         public static final int isFullTime=1;
-        public static final int isPartTime=2;
-        private int num_of_company=0;// private type variable
-        private companyEmpWage[] companyEmpWageArray;//private array
-
+        public static final int isPartTime=2;   
+        public ArrayList<companyEmpWage> companyEmpWageArray;//created arraylist
         public empWage()//default construcor
         {
-                companyEmpWageArray=new companyEmpWage[4];
+                companyEmpWageArray=new ArrayList<>();
         }
         //Adding companies in arrays
-        public void addCompanyEmpWage(String company,int wage_per_hr, int workday_in_months,int max_working_hrs)
+        public void addCompanyEmpWage(String company, int wage_per_hr, int workday_in_months, int max_working_hrs)
         {
-                companyEmpWageArray[num_of_company]=new companyEmpWage(company,wage_per_hr,workday_in_months,max_working_hrs);
-                num_of_company++;
+                companyEmpWage companylist=new companyEmpWage(company, wage_per_hr, workday_in_months, max_working_hrs);
+                companyEmpWageArray.add(companylist);
         }
         //calling computewage function and calculating empwage for every index
         public void computeEmpWage()
         {
-                for(int i=0;i<num_of_company;i++)
+                for(int i=0;i<companyEmpWageArray.size();i++)
                 {
-                        computeWage(companyEmpWageArray[i]);
+                        companyEmpWage companylist=companyEmpWageArray.get(i);//created object and getting companies with index position.
+                        companylist.setTotalSalary(this.computeWage(companylist));
+                        System.out.println(companylist);
                 }
         }
 
         //function to calculate salary for  employee
-        public void computeWage(companyEmpWage emp)
+        private int computeWage(companyEmpWage companylist)
         {
                 //local variables
                 int empHrs=0;
@@ -60,7 +63,7 @@ public class empWage implements companyEmployeewage
                 int totalworkingdays=0;
 
                 //loop will run untill it reaches 100 hours or 20 days
-                while(totalempHrs<=emp.max_working_hrs && totalworkingdays<=emp.workday_in_months)
+                while(totalempHrs<=companylist.max_working_hrs && totalworkingdays<=companylist.workday_in_months)
                 {
                         //switch case to check for fulltime or parttime
                         int empCheck=(int)(Math.floor(Math.random()*10)%3);
@@ -80,10 +83,9 @@ public class empWage implements companyEmployeewage
                         totalempHrs=totalempHrs+empHrs;
                         totalworkingdays++; //incrementing while loop.
                 }
-                        int TotalSalary= totalempHrs*emp.wage_per_hr; //Calculating total salary of employee
-
-                        //printing totalsalary of different companies employee
-                        System.out.println( "Total Employee Salary of " + emp.company +" is " + TotalSalary);
+                    //Calculating total salary of employee
+                        int totalSalary= totalempHrs*companylist.wage_per_hr; 
+                        return totalSalary;
         }
 
         //main method
@@ -97,5 +99,11 @@ public class empWage implements companyEmployeewage
                 ob.computeEmpWage();//calling fucntion with the object
         }
 }
+
+
+
+
+
+
 
 
