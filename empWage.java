@@ -7,6 +7,7 @@ class companyEmpWage
         public int workday_in_months;
         public int max_working_hrs;
         public int totalSalary;
+        ArrayList<Integer>dailyWage=new ArrayList<Integer>();
 
         //parameterized constructor
         public companyEmpWage(String company, int wage_per_hr, int workday_in_months, int max_working_hrs)
@@ -23,7 +24,7 @@ class companyEmpWage
         }
         public String toString() //to return desire output 
         {
-              return "Total employee wage for: " +company+ " is " +totalSalary;
+              return "Total employee wage for: " +company+ " is " +totalSalary+"\n";
         }
         	
 }
@@ -31,11 +32,18 @@ class companyEmpWage
 public class empWage
 {
         public static final int isFullTime=1;
-        public static final int isPartTime=2;   
+        public static final int isPartTime=2;
+        int dailysal;
+        ArrayList<Integer>dailyWage=new ArrayList<Integer>();//created arraylist for dailywage
         public ArrayList<companyEmpWage> companyEmpWageArray;//created arraylist
         public empWage()//default construcor
         {
                 companyEmpWageArray=new ArrayList<>();
+        }
+        //function to add daily salary into arraylist
+        public void dailyWage()
+        {
+            dailyWage.add(dailysal);
         }
         //Adding companies in arrays
         public void addCompanyEmpWage(String company, int wage_per_hr, int workday_in_months, int max_working_hrs)
@@ -79,10 +87,17 @@ public class empWage
                                         empHrs=0;
                                         break;
                         }
+                        //calculating dailywage for employee
+                         dailysal=empHrs*companylist.wage_per_hr;
+				        companylist.dailyWage.add(dailysal);
+				        
                         //adding hours in total hours as totalemp hours is 0
                         totalempHrs=totalempHrs+empHrs;
                         totalworkingdays++; //incrementing while loop.
                 }
+                    //Printing dailyWage for every employee
+                    System.out.println("DailyWage for employee is: "+companylist.dailyWage);
+                    
                     //Calculating total salary of employee
                         int totalSalary= totalempHrs*companylist.wage_per_hr; 
                         return totalSalary;
@@ -91,7 +106,7 @@ public class empWage
         //main method
         public static void main(String[] args)
         {
-                System.out.println("Welcome to Employee Wage Computation Program in Main branch");
+                System.out.println("Welcome to Employee Wage Computation Program in Main branch \n");
                 empWage ob=new empWage();//created object for empWage class
                 ob.addCompanyEmpWage("DeSaw",50,35,25);//calling funtion with the object
                 ob.addCompanyEmpWage("TCS",40,25,18);//calling function with the object
@@ -99,11 +114,3 @@ public class empWage
                 ob.computeEmpWage();//calling fucntion with the object
         }
 }
-
-
-
-
-
-
-
-
