@@ -1,7 +1,7 @@
 class empWage
 {
-	public static final int Max_working_Hrs=100;
-	public static final int workday_in_months=20;
+	public static final int MAX_WORKING_HRS=100;
+	public static final int WORKDAY_IN_MONTHS=20;
 
         public static void main(String[] args)
         {
@@ -9,11 +9,11 @@ class empWage
 		int partTime=2;
 		int wage_per_hr=20;
 		int empHrs=0;
-		int totalempHrs=0;
-		int totalworkingdays=0;
+		int totalEmpHrs=0;
+		int totalWorkingDays=0;
 
 		System.out.println("Welcome to Employee Wage Computation Program in Main branch");
-		while(totalempHrs<=Max_working_Hrs && totalworkingdays<=workday_in_months)
+		while(totalEmpHrs<=MAX_WORKING_HRS && totalWorkingDays<=WORKDAY_IN_MONTHS)
 		{
 			int empCheck=(int)(Math.floor(Math.random()*10)%3);
 			switch(empCheck)
@@ -23,16 +23,15 @@ class empWage
 					break;
 				case 2:
 					 empHrs=4;
-					empHrs=4;
 					break;
 				default:
 					empHrs=0;
 					break;
 			}
-			totalempHrs=totalempHrs+empHrs;
-			totalworkingdays++;
+			totalEmpHrs=totalEmpHrs+empHrs;
+			totalWorkingDays++;
 		}
-			int TotalSalary= totalempHrs*wage_per_hr;
+			int TotalSalary= totalEmpHrs*wage_per_hr;
 			System.out.print("Total Employee Salary is: "+ TotalSalary);
 	}
 }
